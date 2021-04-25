@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">SharedViewModel</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="river_frogs">No Frogs Are In The River</string>
+</resources>
