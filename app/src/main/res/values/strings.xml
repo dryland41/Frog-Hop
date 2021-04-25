@@ -1,7 +1,10 @@
 <resources>
-    <string name="app_name">SharedViewModel</string>
+    <string name="app_name">Frog Hop</string>
 
     <string name="river_frogs">There are no frogs are in the river.</string>
-    <string name="first_frogs">FROG FROG FROG</string>
+    <string name="three_frogs">FROG FROG FROG</string>
+    <string name="two_frogs">FROG FROG</string>
+    <string name="one_frog">FROG</string>
+    <string name="no_frogs">There aren\'t any frogs here!</string>
     <string name="last_frogs">Jump the frogs across.</string>
 </resources>

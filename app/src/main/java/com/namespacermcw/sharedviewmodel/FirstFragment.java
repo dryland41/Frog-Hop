@@ -34,9 +34,32 @@ public class FirstFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 //viewModel.setText(editText.getText());
-                viewModel.setTextOne("FROG");
-                viewModel.setTextTwo("FROG FROG");
-                viewModel.setTextThree("FROG FROG FROG");
+                viewModel.setNumFrogsFirst(viewModel.getNumFrogsFirst() - 1);
+                viewModel.setNumFrogsLast(viewModel.getNumFrogsLast() + 1);
+                //viewModel.setText(editText.getText());
+                if (viewModel.getNumFrogsFirst() == 3) {
+                    viewModel.setTextOne(getString(R.string.three_frogs));
+                } else if (viewModel.getNumFrogsFirst() == 2) {
+                    viewModel.setTextOne(getString(R.string.two_frogs));
+                } else if (viewModel.getNumFrogsFirst() == 1) {
+                    viewModel.setTextOne(getString(R.string.one_frog));
+                } else viewModel.setTextOne(getString(R.string.no_frogs));
+
+                if (viewModel.getGetNumFrogsMiddle() == 3) {
+                    viewModel.setTextTwo(getString(R.string.three_frogs));
+                } else if (viewModel.getGetNumFrogsMiddle() == 2) {
+                    viewModel.setTextTwo(getString(R.string.two_frogs));
+                } else if (viewModel.getGetNumFrogsMiddle() == 1) {
+                    viewModel.setTextTwo(getString(R.string.one_frog));
+                } else viewModel.setTextTwo(getString(R.string.no_frogs));
+
+                if (viewModel.getNumFrogsLast() == 3) {
+                    viewModel.setTextThree(getString(R.string.three_frogs));
+                } else if (viewModel.getNumFrogsLast() == 2) {
+                    viewModel.setTextThree(getString(R.string.two_frogs));
+                } else if (viewModel.getNumFrogsLast() == 1) {
+                    viewModel.setTextThree(getString(R.string.one_frog));
+                } else viewModel.setTextThree(getString(R.string.no_frogs));
             }
         });
 

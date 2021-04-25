@@ -9,7 +9,7 @@
 
     <TextView
         android:id="@+id/first_text"
-        android:text="@string/first_frogs"
+        android:text="@string/three_frogs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 

@@ -23,6 +23,7 @@ public class LastFragment extends Fragment {
     //private EditText editText;
     private TextView frogs;
 
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -31,14 +32,37 @@ public class LastFragment extends Fragment {
 
         //editText = v.findViewById(R.id.edit_text);
         frogs = v.findViewById(R.id.last_text);
+
         Button button = v.findViewById(R.id.button_jump);
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                viewModel.setNumFrogsLast(viewModel.getNumFrogsLast() - 1);
+                viewModel.setNumFrogsFirst(viewModel.getNumFrogsFirst() + 1);
                 //viewModel.setText(editText.getText());
-                viewModel.setTextOne("FROG FROG FROG");
-                viewModel.setTextTwo("FROG");
-                viewModel.setTextThree("FROG FROG");
+                if (viewModel.getNumFrogsFirst() == 3) {
+                    viewModel.setTextOne(getString(R.string.three_frogs));
+                } else if (viewModel.getNumFrogsFirst() == 2) {
+                    viewModel.setTextOne(getString(R.string.two_frogs));
+                } else if (viewModel.getNumFrogsFirst() == 1) {
+                    viewModel.setTextOne(getString(R.string.one_frog));
+                } else viewModel.setTextOne(getString(R.string.no_frogs));
+
+                if (viewModel.getGetNumFrogsMiddle() == 3) {
+                    viewModel.setTextTwo(getString(R.string.three_frogs));
+                } else if (viewModel.getGetNumFrogsMiddle() == 2) {
+                    viewModel.setTextTwo(getString(R.string.two_frogs));
+                } else if (viewModel.getGetNumFrogsMiddle() == 1) {
+                    viewModel.setTextTwo(getString(R.string.one_frog));
+                } else viewModel.setTextTwo(getString(R.string.no_frogs));
+
+                if (viewModel.getNumFrogsLast() == 3) {
+                    viewModel.setTextThree(getString(R.string.three_frogs));
+                } else if (viewModel.getNumFrogsLast() == 2) {
+                    viewModel.setTextThree(getString(R.string.two_frogs));
+                } else if (viewModel.getNumFrogsLast() == 1) {
+                    viewModel.setTextThree(getString(R.string.one_frog));
+                } else viewModel.setTextThree(getString(R.string.no_frogs));
             }
         });
 
