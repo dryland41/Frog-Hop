@@ -14,4 +14,5 @@ Bonus: When all items land in the river, make an Alert-dialogue box and a toast 
 
 I used the "How to Send Data Between 2 Fragments Using a Shared ViewModel - Android Studio Tutorial" from Coding in Flow as my starting point on this one.
 
-https://www.youtube.com/watch?v=ACK67xU1Y3s 
+https://www.youtube.com/watch?v=ACK67xU1Y3s
+https://codinginflow.com/tutorials/android/fragment-to-fragment-communication-with-shared-viewmodel
