@@ -7,8 +7,9 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <EditText
-        android:id="@+id/edit_text"
+    <TextView
+        android:id="@+id/first_text"
+        android:text="@string/first_frogs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 
