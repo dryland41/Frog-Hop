@@ -20,7 +20,7 @@ public class SharedViewModel extends ViewModel {
         numFrogsMiddle = num;
     }
 
-    public int getGetNumFrogsMiddle() {
+    public int getNumFrogsMiddle() {
         return numFrogsMiddle;
     }
 

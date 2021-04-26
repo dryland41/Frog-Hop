@@ -1,22 +1,19 @@
 package com.namespacermcw.sharedviewmodel;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProviders;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TextView;
-
-import org.w3c.dom.Text;
+import java.util.Random;
 
 public class LastFragment extends Fragment {
     private SharedViewModel viewModel;
@@ -37,32 +34,38 @@ public class LastFragment extends Fragment {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                viewModel.setNumFrogsLast(viewModel.getNumFrogsLast() - 1);
-                viewModel.setNumFrogsFirst(viewModel.getNumFrogsFirst() + 1);
-                //viewModel.setText(editText.getText());
-                if (viewModel.getNumFrogsFirst() == 3) {
-                    viewModel.setTextOne(getString(R.string.three_frogs));
-                } else if (viewModel.getNumFrogsFirst() == 2) {
-                    viewModel.setTextOne(getString(R.string.two_frogs));
-                } else if (viewModel.getNumFrogsFirst() == 1) {
-                    viewModel.setTextOne(getString(R.string.one_frog));
-                } else viewModel.setTextOne(getString(R.string.no_frogs));
+                if (viewModel.getNumFrogsLast() != 0) {
+                    Random rand = new Random();
+                    viewModel.setNumFrogsLast(viewModel.getNumFrogsLast() - 1);
+                    if (rand.nextInt(2) == 0) {
+                        viewModel.setNumFrogsFirst(viewModel.getNumFrogsFirst() + 1);
+                    } else {
+                        viewModel.setSetNumFrogsMiddle(viewModel.getNumFrogsMiddle() + 1);
+                    }
+                    if (viewModel.getNumFrogsFirst() == 3) {
+                        viewModel.setTextOne(getString(R.string.three_frogs));
+                    } else if (viewModel.getNumFrogsFirst() == 2) {
+                        viewModel.setTextOne(getString(R.string.two_frogs));
+                    } else if (viewModel.getNumFrogsFirst() == 1) {
+                        viewModel.setTextOne(getString(R.string.one_frog));
+                    } else viewModel.setTextOne(getString(R.string.no_frogs));
 
-                if (viewModel.getGetNumFrogsMiddle() == 3) {
-                    viewModel.setTextTwo(getString(R.string.three_frogs));
-                } else if (viewModel.getGetNumFrogsMiddle() == 2) {
-                    viewModel.setTextTwo(getString(R.string.two_frogs));
-                } else if (viewModel.getGetNumFrogsMiddle() == 1) {
-                    viewModel.setTextTwo(getString(R.string.one_frog));
-                } else viewModel.setTextTwo(getString(R.string.no_frogs));
+                    if (viewModel.getNumFrogsMiddle() == 3) {
+                        viewModel.setTextTwo(getString(R.string.three_frogs));
+                    } else if (viewModel.getNumFrogsMiddle() == 2) {
+                        viewModel.setTextTwo(getString(R.string.two_frogs));
+                    } else if (viewModel.getNumFrogsMiddle() == 1) {
+                        viewModel.setTextTwo(getString(R.string.one_frog));
+                    } else viewModel.setTextTwo(getString(R.string.no_frogs));
 
-                if (viewModel.getNumFrogsLast() == 3) {
-                    viewModel.setTextThree(getString(R.string.three_frogs));
-                } else if (viewModel.getNumFrogsLast() == 2) {
-                    viewModel.setTextThree(getString(R.string.two_frogs));
-                } else if (viewModel.getNumFrogsLast() == 1) {
-                    viewModel.setTextThree(getString(R.string.one_frog));
-                } else viewModel.setTextThree(getString(R.string.no_frogs));
+                    if (viewModel.getNumFrogsLast() == 3) {
+                        viewModel.setTextThree(getString(R.string.three_frogs));
+                    } else if (viewModel.getNumFrogsLast() == 2) {
+                        viewModel.setTextThree(getString(R.string.two_frogs));
+                    } else if (viewModel.getNumFrogsLast() == 1) {
+                        viewModel.setTextThree(getString(R.string.one_frog));
+                    } else viewModel.setTextThree(getString(R.string.no_frogs));
+                }
             }
         });
 
@@ -76,7 +79,6 @@ public class LastFragment extends Fragment {
         viewModel.getTextThree().observe(getViewLifecycleOwner(), new Observer<CharSequence>() {
             @Override
             public void onChanged(@Nullable CharSequence charSequence) {
-                //editText.setText(charSequence);
                 frogs.setText(charSequence);
             }
         });
